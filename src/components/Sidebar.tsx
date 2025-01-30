@@ -25,87 +25,47 @@ function Sidebar({ isAdmin }:{ isAdmin?:boolean }) {
 
   return (
     <div className={`${(windowWidth<800&&showMenu)&&"fixed top-5 left-5 bottom-5 right-5"} ${windowWidth>800&&"h-full"}`}>
-        {
-            !isAdmin && (
-                <div
-                    className={`${windowWidth<800&&!showMenu?"hidden":""} ${windowWidth<800?"w-full":"w-[200px]"} h-full flex flex-col justify-start items-start bg-white shadow-lg text-gray-900`}
-                >
-                    <div className='w-full flex-1'>
-                        <MenuItem
-                            title='Streams'
-                            link='/userDashboard/streams'
-                            icon={()=><IoRadioSharp size={20} />}
-                            closeMenu={()=>{setShowMenu(false)}}
-                        />
-                        <MenuItem
-                            title='Billing'
-                            link='/userDashboard/billing'
-                            icon={()=><FaMoneyCheck size={20} />}
-                            closeMenu={()=>{setShowMenu(false)}}
-                        />
-                        <MenuItem
-                            title='Profile'
-                            link='/userDashboard/profile'
-                            closeMenu={()=>{setShowMenu(false)}}
-                            icon={()=><FaUser size={20} />}
-                        />
-                    </div>
-                
-                    <div className='py-4 px-2 text-right w-full' onClick={async()=>await signOut({ callbackUrl:"/" })}>
-                        <MenuItem
-                            disable
-                            title='Sign Out'
-                            link='/dashboard/billing'
-                            closeMenu={()=>{setShowMenu(false)}}
-                            icon={()=><FaSignOutAlt size={20} />}
-                        />
-                    </div>
-                </div>
-            )
-        }
-        {
-            isAdmin && (
-                <div
-                    className={`${windowWidth<800&&!showMenu?"hidden":""} ${windowWidth<800?"w-full":"w-[200px]"} h-full flex flex-col justify-start items-start bg-white shadow-lg text-gray-900`}                >
-                    <div className='w-full flex-1'>
-                        <MenuItem
-                            title='Stream'
-                            link='/dashboard/streams'
-                            icon={()=><IoRadioSharp size={20} />}
-                            closeMenu={()=>{setShowMenu(false)}}
-                        />
-                        <MenuItem
-                            title='Users'
-                            link='/dashboard/users'
-                            icon={()=><FaUser size={20} />}
-                            closeMenu={()=>{setShowMenu(false)}}
-                        />
-                        <MenuItem
-                            title='Config'
-                            link='/dashboard/config'
-                            icon={()=><FaUser size={20} />}
-                            closeMenu={()=>{setShowMenu(false)}}
-                        />
-                        {/* <MenuItem
-                            title='Billing'
-                            link='/dashboard/billing'
-                            icon={()=><FaMoneyCheck size={20} />}
-                            closeMenu={()=>{setShowMenu(false)}}
-                        /> */}
-                    </div>
-                
-                    <div className='py-4 px-2 text-right w-full' onClick={async()=>await signOut({ callbackUrl:"/" })}>
-                        <MenuItem
-                            disable
-                            title='Sign Out'
-                            link='/dashboard/billing'
-                            icon={()=><FaSignOutAlt size={20} />}
-                            closeMenu={()=>{setShowMenu(false)}}
-                        />
-                    </div>
-                </div>
-            )
-        }
+        <div
+            className={`${windowWidth<800&&!showMenu?"hidden":""} ${windowWidth<800?"w-full":"w-[200px]"} h-full flex flex-col justify-start items-start bg-white shadow-lg text-gray-900`}
+        >
+            <div className='w-full flex-1'>
+                <MenuItem
+                    title='Cloud Insights'
+                    link='/dashboard/cloudInsights'
+                    icon={()=><IoRadioSharp size={20} />}
+                    closeMenu={()=>{setShowMenu(false)}}
+                />
+                <MenuItem
+                    title='Allowed Resources'
+                    link='/dashboard/allowedResources'
+                    icon={()=><FaMoneyCheck size={20} />}
+                    closeMenu={()=>{setShowMenu(false)}}
+                />
+                <MenuItem
+                    title='Rewards'
+                    link='/dashboard/rewards'
+                    closeMenu={()=>{setShowMenu(false)}}
+                    icon={()=><FaUser size={20} />}
+                />
+                <MenuItem
+                    title='Configuration'
+                    link='/dashboard/configuration'
+                    closeMenu={()=>{setShowMenu(false)}}
+                    icon={()=><FaUser size={20} />}
+                />
+            </div>
+        
+            <div className='py-4 px-2 text-right w-full' onClick={async()=>await signOut({ callbackUrl:"/" })}>
+                {/* <MenuItem
+                    disable
+                    title='Sign Out'
+                    link='/dashboard/billing'
+                    closeMenu={()=>{setShowMenu(false)}}
+                    icon={()=><FaSignOutAlt size={20} />}
+                /> */}
+            </div>
+        </div>
+
     <div className={`flex justify-center items-center fixed bottom-10 right-5 w-12 h-12 bg-purple-500 rounded-full ${windowWidth>800&&"hidden"}`} onClick={()=>setShowMenu(!showMenu)}>
         { !showMenu && <TiThMenu size={30} color='white' /> }
         { showMenu && <RiCloseLargeLine size={30} color='white' /> }
