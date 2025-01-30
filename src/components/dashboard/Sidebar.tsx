@@ -38,20 +38,20 @@ function Sidebar({ isAdmin }:{ isAdmin?:boolean }) {
                 <MenuItem
                     title='Allowed Resources'
                     link='/dashboard/allowedResources'
-                    icon={()=><FaMoneyCheck size={20} />}
+                    icon={()=><IoRadioSharp size={20} />}
                     closeMenu={()=>{setShowMenu(false)}}
                 />
                 <MenuItem
                     title='Rewards'
                     link='/dashboard/rewards'
                     closeMenu={()=>{setShowMenu(false)}}
-                    icon={()=><FaUser size={20} />}
+                    icon={()=><IoRadioSharp size={20} />}
                 />
                 <MenuItem
                     title='Configuration'
                     link='/dashboard/configuration'
                     closeMenu={()=>{setShowMenu(false)}}
-                    icon={()=><FaUser size={20} />}
+                    icon={()=><IoRadioSharp size={20} />}
                 />
             </div>
         

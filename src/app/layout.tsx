@@ -17,8 +17,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "HyperFans",
-  description: "Hyperfance",
+  title: "Liquid Nexus",
+  description: "Liquid Nexus",
 };
 
 export default function RootLayout({

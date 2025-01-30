@@ -1,5 +1,5 @@
-import { Navbar } from "@/components/Navbar";
-import { Sidebar } from "@/components/Sidebar";
+import { Navbar } from "@/components/dashboard/Navbar";
+import { Sidebar } from "@/components/dashboard/Sidebar";
 import { Providers } from "./Providers";
 
 export default function RootLayout({
