@@ -4,16 +4,17 @@ import type {ReactNode} from 'react'
 import Link from 'next/link'
 import { signOut } from 'next-auth/react'
 import { IoRadioSharp } from "react-icons/io5";
-import { FaUser } from "react-icons/fa";
-import { FaMoneyCheck } from "react-icons/fa";
-import { FaSignOutAlt } from "react-icons/fa";
 import { TiThMenu } from "react-icons/ti";
 import { RiCloseLargeLine } from "react-icons/ri";
+import { useCloudProviderStore } from '@/store/CloudProviderStore'
+import { FaChevronDown } from "react-icons/fa";
 
 function Sidebar({ isAdmin }:{ isAdmin?:boolean }) {
+    const cloudProvider = useCloudProviderStore()
 
     const [windowWidth, setWindowWidth] = useState(0)
     const [showMenu, setShowMenu] = useState(false)
+    const [showCloudProviders, setShowCloudProviders] = useState(false)
 
     useEffect(()=>{
         setWindowWidth(window.innerWidth)
@@ -23,8 +24,34 @@ function Sidebar({ isAdmin }:{ isAdmin?:boolean }) {
         window.addEventListener("resize", resizeHandler)
     }, [])
 
+    const handleSelectProvider = (index:number) => {
+        cloudProvider.setProvider(index)
+        setShowCloudProviders(false)
+    }
+
   return (
     <div className={`${(windowWidth<800&&showMenu)&&"fixed top-5 left-5 bottom-5 right-5"} ${windowWidth>800&&"h-full"}`}>
+        
+        <div className='relative py-2 px-2'>
+            <div onClick={()=>setShowCloudProviders(!showCloudProviders)} className='flex gap-2 justify-center items-center bg-gray-100 rounded-lg px-1 py-3 cursor-pointer'>
+                <p>
+                    { cloudProvider.availableProviders[cloudProvider.selectedProviderIndex] }
+                </p>
+                <FaChevronDown />
+            </div>
+            <div className='rounded-lg transition-all overflow-hidden' style={{ maxHeight: showCloudProviders ? '500px' : 0 }}>
+                {
+                    cloudProvider.availableProviders.map((provider, index)=>{
+                        return (
+                            <div onClick={()=>handleSelectProvider(index)} style={{ transform: `scaleY(${showCloudProviders?1:0})` }} key={provider+index+"cloudproviderslistonsidebar"} className='text-gray-600 px-2 py-3 cursor-pointer transition-all origin-top'>
+                                <p>{ provider }</p>
+                            </div>
+                        )
+                    })
+                }
+            </div>
+        </div>
+
         <div
             className={`${windowWidth<800&&!showMenu?"hidden":""} ${windowWidth<800?"w-full":"w-[200px]"} h-full flex flex-col justify-start items-start bg-white shadow-lg text-gray-900`}
         >
