@@ -10,7 +10,7 @@ const OPTIONS = [
   { path: "farm-yielding", label: "Farm Yielding" },
 ]
 
-export default function AllowedResources() {
+export default function ResourceManagement() {
 
   const router = useRouter()
 
@@ -21,7 +21,7 @@ export default function AllowedResources() {
         {
           OPTIONS.map((option, index)=>{
             return (
-              <div onClick={()=>router.push(`allowedResources/${option.path}`)} key={option.label+"allowresoradfaf"+index} className="flex-shrink-0 w-[49%] bg-gray-100 rounded-xl p-4 cursor-pointer">
+              <div onClick={()=>router.push(`resourceManagement/${option.path}`)} key={option.label+"allowresoradfaf"+index} className="flex-shrink-0 w-[49%] bg-gray-100 rounded-xl p-4 cursor-pointer">
                 <p className="text-xl text-gray-700 font-bold">{ option.label }</p>          
               </div>
             )

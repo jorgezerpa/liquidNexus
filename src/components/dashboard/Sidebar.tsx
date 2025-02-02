@@ -56,14 +56,14 @@ function Sidebar({ isAdmin }:{ isAdmin?:boolean }) {
             </div>
             <div className='w-full flex-1'>
                 <MenuItem
-                    title='Cloud Insights'
-                    link='/dashboard/cloudInsights'
+                    title='Home'
+                    link='/dashboard/home'
                     icon={()=><IoRadioSharp size={20} />}
                     closeMenu={()=>{setShowMenu(false)}}
                 />
-                <MenuItem
-                    title='Allowed Resources'
-                    link='/dashboard/allowedResources'
+                <MenuItemDropdown
+                    title='Resource Management'
+                    link='/dashboard/resourceManagement'
                     icon={()=><IoRadioSharp size={20} />}
                     closeMenu={()=>{setShowMenu(false)}}
                 />
@@ -73,9 +73,15 @@ function Sidebar({ isAdmin }:{ isAdmin?:boolean }) {
                     closeMenu={()=>{setShowMenu(false)}}
                     icon={()=><IoRadioSharp size={20} />}
                 />
+                <MenuItemDropdown
+                    title='Settings'
+                    link='/dashboard/settings'
+                    closeMenu={()=>{setShowMenu(false)}}
+                    icon={()=><IoRadioSharp size={20} />}
+                />
                 <MenuItem
-                    title='Configuration'
-                    link='/dashboard/configuration'
+                    title='Support and Documentation'
+                    link='/dashboard/'
                     closeMenu={()=>{setShowMenu(false)}}
                     icon={()=><IoRadioSharp size={20} />}
                 />
@@ -117,6 +123,42 @@ const MenuItem = ({title, link, icon, disable, closeMenu}: { title:string, link:
                     <p>{title}</p>
                 </div>
             }
+        </div>
+    )
+}
+
+const MenuItemDropdown = ({title, icon, closeMenu}: { title:string, link:string, icon: () => ReactNode, disable?:boolean, closeMenu?:()=>void }) => {
+    
+    const [showDropdown, setShowDropdown] = useState(false)
+
+    return (
+        <div onClick={()=>setShowDropdown(!showDropdown)} className='w-full py-4 px-2 text-lg'>
+            <div className='flex justify-start items-center gap-1 cursor-pointer'>
+                { icon() }
+                <p>{title}</p>
+                <div className='flex-1 flex justify-end transition-all'>
+                    <FaChevronDown style={{ transform:`rotate(${showDropdown?"180deg":"0deg"})` }} className='transition-all' />
+                </div>
+            </div>
+
+            <div className='ml-5 pl-2 border-l-2 border-gray-300 transition-all overflow-hidden' style={{ maxHeight: showDropdown ? '500px' : 0 }}>
+                {
+                    [1,2,3,4].map((item, key) => {
+                        return(
+                            <div
+                                onClick={()=>{
+                                    setShowDropdown(false)
+                                }}
+                                style={{ transform: `scaleY(${showDropdown?1:0})` }}
+                                key={"uniquesidebarsubitemmen"+item} className='mb-2 flex justify-start items-center gap-1 cursor-pointer transition-all origin-top'
+                            >
+                                { icon() }
+                                <p>sub1</p>
+                            </div>
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }

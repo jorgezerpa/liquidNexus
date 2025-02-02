@@ -23,7 +23,7 @@ const MAP_PARAM_TO_COMPONENT: any = {
   "farm-yielding": () => "Farm Yielding",
 }
 
-export default function AllowedResourcesResource() {
+export default function ResourceManagementDetail() {
   const router = useRouter()
   const params = useParams()
   const resource = params.resource
