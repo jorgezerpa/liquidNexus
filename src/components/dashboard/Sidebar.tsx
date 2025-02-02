@@ -8,6 +8,7 @@ import { TiThMenu } from "react-icons/ti";
 import { RiCloseLargeLine } from "react-icons/ri";
 import { useCloudProviderStore } from '@/store/CloudProviderStore'
 import { FaChevronDown } from "react-icons/fa";
+import { useRouter } from 'next/navigation'
 
 function Sidebar({ isAdmin }:{ isAdmin?:boolean }) {
     const cloudProvider = useCloudProviderStore()
@@ -63,9 +64,14 @@ function Sidebar({ isAdmin }:{ isAdmin?:boolean }) {
                 />
                 <MenuItemDropdown
                     title='Resource Management'
-                    link='/dashboard/resourceManagement'
+                    // link='/dashboard/resourceManagement'
                     icon={()=><IoRadioSharp size={20} />}
                     closeMenu={()=>{setShowMenu(false)}}
+                    subitems={[
+                        { title: "CPU", link:"/dashboard/resourceManagement/cpu", icon: ()=><IoRadioSharp size={20} /> },
+                        { title: "Bandwidth", link:"/dashboard/resourceManagement/bandwidth", icon: ()=><IoRadioSharp size={20} /> },
+                        { title: "Storage", link:"/dashboard/resourceManagement/storage", icon: ()=><IoRadioSharp size={20} /> },
+                    ]}
                 />
                 <MenuItem
                     title='Rewards'
@@ -75,9 +81,14 @@ function Sidebar({ isAdmin }:{ isAdmin?:boolean }) {
                 />
                 <MenuItemDropdown
                     title='Settings'
-                    link='/dashboard/settings'
+                    // link='/dashboard/settings'
                     closeMenu={()=>{setShowMenu(false)}}
                     icon={()=><IoRadioSharp size={20} />}
+                    subitems={[
+                        { title: "Account preferences", link:"/dashboard/settings/accountPreferences", icon: ()=><IoRadioSharp size={20} /> },
+                        { title: "API keys", link:"/dashboard/settings/apiKeys", icon: ()=><IoRadioSharp size={20} /> },
+                        { title: "Wallet Addresses", link:"/dashboard/settings/walletAddress", icon: ()=><IoRadioSharp size={20} /> },
+                    ]}
                 />
                 <MenuItem
                     title='Support and Documentation'
@@ -127,8 +138,8 @@ const MenuItem = ({title, link, icon, disable, closeMenu}: { title:string, link:
     )
 }
 
-const MenuItemDropdown = ({title, icon, closeMenu}: { title:string, link:string, icon: () => ReactNode, disable?:boolean, closeMenu?:()=>void }) => {
-    
+const MenuItemDropdown = ({title, icon, closeMenu, subitems}: { title:string, icon: () => ReactNode, disable?:boolean, closeMenu?:()=>void, subitems:{title:string, link:string, icon: () => ReactNode,}[] }) => {
+    const router = useRouter()
     const [showDropdown, setShowDropdown] = useState(false)
 
     return (
@@ -143,17 +154,20 @@ const MenuItemDropdown = ({title, icon, closeMenu}: { title:string, link:string,
 
             <div className='ml-5 pl-2 border-l-2 border-gray-300 transition-all overflow-hidden' style={{ maxHeight: showDropdown ? '500px' : 0 }}>
                 {
-                    [1,2,3,4].map((item, key) => {
+                    subitems.map((item, i) => {
                         return(
                             <div
-                                onClick={()=>{
-                                    setShowDropdown(false)
+                                onClick={(e)=>{
+                                    e.stopPropagation()
+                                    // setShowDropdown(false)
+                                    router.push(item.link)
+                                    if(closeMenu)closeMenu()
                                 }}
                                 style={{ transform: `scaleY(${showDropdown?1:0})` }}
-                                key={"uniquesidebarsubitemmen"+item} className='mb-2 flex justify-start items-center gap-1 cursor-pointer transition-all origin-top'
+                                key={"uniquesidebarsubitemmen"+item.link+i} className='mb-2 flex justify-start items-center gap-1 cursor-pointer transition-all origin-top'
                             >
-                                { icon() }
-                                <p>sub1</p>
+                                { item.icon() }
+                                <p>{ item.title }</p>
                             </div>
                         )
                     })
