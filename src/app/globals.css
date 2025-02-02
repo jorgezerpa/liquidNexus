@@ -17,6 +17,11 @@
   }
 }
 
+body {
+  background-color: #171717;
+  color: #eee
+}
+
 .horizontal-scroll {
   overflow-x: auto; /* Use 'auto' to only show scrollbar when needed */
   scrollbar-width: thin; /* For Firefox */

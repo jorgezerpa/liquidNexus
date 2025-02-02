@@ -34,7 +34,7 @@ function Sidebar({ isAdmin }:{ isAdmin?:boolean }) {
     <div className={`${(windowWidth<800&&showMenu)&&"fixed top-5 left-5 bottom-5 right-5"} ${windowWidth>800&&"h-full"}`}>
     
         <div
-            className={`${windowWidth<800&&!showMenu?"hidden":""} ${windowWidth<800?"w-full":"w-[200px]"} h-full flex flex-col justify-start items-start bg-white shadow-lg text-gray-900`}
+            className={`${windowWidth<800&&!showMenu?"hidden":""} ${windowWidth<800?"w-full":"w-[200px]"} ${windowWidth<800?"rounded-lg":"rounded-none"} h-full flex flex-col justify-start items-start bg-black shadow-lg shadow-[#555] text-gray-200`}
         >
             {/* <div className='relative py-2 px-2 w-full'>
                 <div onClick={()=>setShowCloudProviders(!showCloudProviders)} className='flex gap-2 justify-center items-center bg-gray-100 rounded-lg px-1 py-3 cursor-pointer'>
