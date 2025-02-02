@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PieChart as PieCharRecharts, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }:any) => {
@@ -19,14 +19,13 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 export const PieChart = () => {
 
     const [data, setData] = useState([
-        { name: 'Free', value: 400 },
-        { name: 'NFT assets', value: 300 },
-        { name: 'Proofs backups', value: 300 },
-        { name: 'personal usage', value: 200 },
+        { name: 'Personal', value: 400 },
+        { name: 'Free', value: 300 },
+        { name: 'Contributing', value: 300 },
     ])
 
   return (
-    <div className='flex '>
+    <div className='flex justify-center'>
         <div className="h-[300px] w-[300px]">
             <ResponsiveContainer width="100%" height="100%">
                 <PieCharRecharts>

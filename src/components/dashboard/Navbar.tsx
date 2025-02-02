@@ -12,7 +12,6 @@ function Navbar() {
     const {address, chainId, chain} = useAccount()
 
     const {data:dataBalance} = useBalance({chainId, address})
-    console.log(dataBalance)
 
     const {disconnect} = useDisconnect()
     const [showProfileOptions, setShowProfileOptions] = useState(false)

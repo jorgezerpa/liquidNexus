@@ -1,5 +1,96 @@
 'use client'
 import { useRouter, useSearchParams } from "next/navigation"
+import { PieChart } from "@/components/charts/PieChart"
+import { LineChart } from "@/components/charts/LineChart"
+import { BarChart } from "@/components/charts/BarChart";
+
+const dataLineChart = [
+  {
+    name: 'Jan',
+    "CPU": 4000,
+    "Storage": 4000,
+    "Bandwidth": 2400,
+    amt: 2400,
+  },
+  {
+    name: 'Feb',
+    "CPU": 4000,
+    "Storage": 3000,
+    "Bandwidth": 1398,
+    amt: 2210,
+  },
+  {
+    name: 'Mar',
+    "CPU": 4000,
+    "Storage": 2000,
+    "Bandwidth": 9800,
+    amt: 2290,
+  },
+  {
+    name: 'Apr',
+    "CPU": 4000,
+    "Storage": 2780,
+    "Bandwidth": 3908,
+    amt: 2000,
+  },
+  {
+    name: 'May',
+    "CPU": 4000,
+    "Storage": 1890,
+    "Bandwidth": 4800,
+    amt: 2181,
+  },
+  {
+    name: 'Jun',
+    "CPU": 4000,
+    "Storage": 2390,
+    "Bandwidth": 3800,
+    amt: 2500,
+  },
+  {
+    name: 'Jul',
+    "CPU": 4000,
+    "Storage": 3490,
+    "Bandwidth": 4300,
+    amt: 2100,
+  },
+  {
+    name: 'Aug',
+    "CPU": 4000,
+    "Storage": 4000,
+    "Bandwidth": 2400,
+    amt: 2400,
+  },
+  {
+    name: 'Sep',
+    "CPU": 4000,
+    "Storage": 3000,
+    "Bandwidth": 1398,
+    amt: 2210,
+  },
+  {
+    name: 'Oct',
+    "CPU": 4000,
+    "Storage": 2000,
+    "Bandwidth": 9800,
+    amt: 2290,
+  },
+  {
+    name: 'Nov',
+    "CPU": 4000,
+    "Storage": 2780,
+    "Bandwidth": 3908,
+    amt: 2000,
+  },
+  {
+    name: 'Dic',
+    "CPU": 4000,
+    "Storage": 1890,
+    "Bandwidth": 4800,
+    amt: 2181,
+  }
+];
+
 
 const PROVIDERS = [
   {
@@ -96,132 +187,40 @@ export default function Home() {
       </div>
 
       <div className="h-5"></div>
-      
+
+      <div className="py-10">
+
+      <p className="text-xl text-gray-700 font-bold mb-5">Active Contributions Summary</p>          
+       {/* <div className="flex justify-between">
+         <div className="flex-shrink-0 w-[49%] bg-gray-100 rounded-xl p-4">
+           <p className="text-xl text-gray-700 font-bold">Storage usage</p>          
+           <PieChart />
+         </div>
+         <div className="flex-shrink-0 w-[49%] bg-gray-100 rounded-xl p-4">
+           <p className="text-xl text-gray-700 font-bold">Computational Power</p>          
+           <BarChart />
+         </div>
+       </div> */}
+       {/* <div className="h-5"></div> */}
+   
+       <div className="flex justify-between">
+         <div className="flex-shrink-0 w-[49%] bg-gray-100 rounded-xl p-4">
+           <p className="text-xl text-gray-700 font-bold mb-2">CPU</p>          
+           <LineChart data={dataLineChart} lines={[{ dataKey:"CPU", stroke:"#8884d8" }]} />
+         </div>
+         <div className="flex-shrink-0 w-[49%] bg-gray-100 rounded-xl p-4">
+           <p className="text-xl text-gray-700 font-bold mb-2">Bandwidth</p>          
+           <LineChart data={dataLineChart} lines={[{ dataKey:"Bandwidth", stroke:"#8884d8" }]} />
+         </div>
+       </div>
+       <div className="mt-5 flex-shrink-0 w-[49%] bg-gray-100 rounded-xl p-4">
+           <p className="text-xl text-gray-700 font-bold">Storage usage</p>          
+           <PieChart />
+        </div>
+
+     </div>
+
     </div>
   )
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 'use client'
-// import { PieChart } from "@/components/charts/PieChart"
-// import { BarChart } from "@/components/charts/BarChart"
-// import { LineChart } from "@/components/charts/LineChart"
-
-// const dataLineChart = [
-//   {
-//     name: 'Jan',
-//     "Storage": 4000,
-//     "Band Width": 2400,
-//     amt: 2400,
-//   },
-//   {
-//     name: 'Feb',
-//     "Storage": 3000,
-//     "Band Width": 1398,
-//     amt: 2210,
-//   },
-//   {
-//     name: 'Mar',
-//     "Storage": 2000,
-//     "Band Width": 9800,
-//     amt: 2290,
-//   },
-//   {
-//     name: 'Apr',
-//     "Storage": 2780,
-//     "Band Width": 3908,
-//     amt: 2000,
-//   },
-//   {
-//     name: 'May',
-//     "Storage": 1890,
-//     "Band Width": 4800,
-//     amt: 2181,
-//   },
-//   {
-//     name: 'Jun',
-//     "Storage": 2390,
-//     "Band Width": 3800,
-//     amt: 2500,
-//   },
-//   {
-//     name: 'Jul',
-//     "Storage": 3490,
-//     "Band Width": 4300,
-//     amt: 2100,
-//   },
-//   {
-//     name: 'Aug',
-//     "Storage": 4000,
-//     "Band Width": 2400,
-//     amt: 2400,
-//   },
-//   {
-//     name: 'Sep',
-//     "Storage": 3000,
-//     "Band Width": 1398,
-//     amt: 2210,
-//   },
-//   {
-//     name: 'Oct',
-//     "Storage": 2000,
-//     "Band Width": 9800,
-//     amt: 2290,
-//   },
-//   {
-//     name: 'Nov',
-//     "Storage": 2780,
-//     "Band Width": 3908,
-//     amt: 2000,
-//   },
-//   {
-//     name: 'Dic',
-//     "Storage": 1890,
-//     "Band Width": 4800,
-//     amt: 2181,
-//   }
-// ];
-
-// export default function Home() {
-//   return (
-//     <div className="px-10 py-10">
-
-//       <div className="flex justify-between">
-//         <div className="flex-shrink-0 w-[49%] bg-gray-100 rounded-xl p-4">
-//           <p className="text-xl text-gray-700 font-bold">Storage usage</p>          
-//           <PieChart />
-//         </div>
-//         <div className="flex-shrink-0 w-[49%] bg-gray-100 rounded-xl p-4">
-//           <p className="text-xl text-gray-700 font-bold">Computational Power</p>          
-//           <BarChart />
-//         </div>
-//       </div>
-
-//       <div className="h-5"></div>
-      
-//       <div className="flex">
-//         <div className="flex-shrink-0 w-[100%] bg-gray-100 rounded-xl p-4">
-//           <p className="text-xl text-gray-700 font-bold mb-2">Timeline of Consumed resources</p>          
-//           <LineChart data={dataLineChart} lines={[{ dataKey:"Band Width", stroke:"#8884d8" }, { dataKey:"Storage", stroke:"#82ca9d" }]} />
-//         </div>
-//       </div>
-
-//     </div>
-//   )
-// }

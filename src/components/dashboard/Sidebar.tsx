@@ -36,7 +36,7 @@ function Sidebar({ isAdmin }:{ isAdmin?:boolean }) {
         <div
             className={`${windowWidth<800&&!showMenu?"hidden":""} ${windowWidth<800?"w-full":"w-[200px]"} h-full flex flex-col justify-start items-start bg-white shadow-lg text-gray-900`}
         >
-            <div className='relative py-2 px-2 w-full'>
+            {/* <div className='relative py-2 px-2 w-full'>
                 <div onClick={()=>setShowCloudProviders(!showCloudProviders)} className='flex gap-2 justify-center items-center bg-gray-100 rounded-lg px-1 py-3 cursor-pointer'>
                     <p>
                         { cloudProvider.availableProviders[cloudProvider.selectedProviderIndex] }
@@ -54,7 +54,7 @@ function Sidebar({ isAdmin }:{ isAdmin?:boolean }) {
                         })
                     }
                 </div>
-            </div>
+            </div> */}
             <div className='w-full flex-1'>
                 <MenuItem
                     title='Home'
