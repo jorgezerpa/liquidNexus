@@ -33,7 +33,7 @@ function Navbar() {
                 </div>
             </div>
             <div className='w-full hidden sm:block'>
-                <div className='hover:text-primaryGreen-light cursor-pointer' onClick={()=>router.push("/dashboard")}>
+                <div className='hover:text-primaryGreen-light cursor-pointer inline-block' onClick={()=>router.push("/dashboard")}>
                     <p>Dashboard</p>
                 </div>
             </div>
