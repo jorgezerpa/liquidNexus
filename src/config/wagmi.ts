@@ -1,13 +1,13 @@
 import { http, createConfig } from 'wagmi'
-import { 
-  arbitrum
- } from 'wagmi/chains'
+import { HyperLiquid, Arbitrum, Mainnet } from './customChains'
 import { injected} from 'wagmi/connectors'
-import {RPC_ENDPOINT} from "@/constants/web3"
+
 
 export const config = createConfig({
   chains: [
-   arbitrum 
+   Arbitrum,
+   Mainnet,
+   HyperLiquid
 ],
   connectors: [
     injected(),
@@ -16,7 +16,9 @@ export const config = createConfig({
     // safe(),
   ],
   transports: {
-    [arbitrum.id]: http(RPC_ENDPOINT),
+    [Arbitrum.id]: http(Arbitrum.rpcUrls.default.http[0]),
+    [Mainnet.id]: http(Mainnet.rpcUrls.default.http[0]),
+    [HyperLiquid.id]: http(HyperLiquid.rpcUrls.default.http[0])
   },
   
 })
