@@ -1,11 +1,14 @@
 "use client"
 import React, {useState} from 'react'
-import { useDisconnect, useAccount, useBalance, useChains } from 'wagmi'
+import { useDisconnect, useAccount, useBalance } from 'wagmi'
 import { formatWalletAddress } from '@/utils/formatWalletAddress'
 import { formatBalanceValue } from '@/utils/formatBalanceValue'
 import BlockiesSvg from 'blockies-react-svg'
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 function Navbar() {
+    const router = useRouter()
     const {address, chainId, chain} = useAccount()
 
     const {data:dataBalance} = useBalance({chainId, address})
@@ -18,11 +21,24 @@ function Navbar() {
         <nav
             className='flex justify-between items-center h-[80px] px-4 sm:px-8 shadow-sm absolute top-0 left-0 right-0'
         >
-            <div className=''>
-                <h1 className='text-lg sm:text-2xl font-bold text-gray-600'>LiquidNexus</h1>
+            <div className='sm:w-[250px] mr-2'>
+                {/* <h1 className='text-lg sm:text-2xl font-bold text-gray-600'>LiquidNexus</h1> */}
+                <div style={{ width: '80px', height: '80px', position:"relative"}} className="sm:scale-100"> 
+                    <Image 
+                    src="/images/logo.png" 
+                    alt="My Image" 
+                    layout="fill" 
+                    objectFit="contain" 
+                    />
+                </div>
             </div>
-            <div className='flex justify-end items-center gap-5'>
-                <div>
+            <div className='w-full hidden sm:block'>
+                <div className='hover:text-primaryGreen-light cursor-pointer' onClick={()=>router.push("/dashboard")}>
+                    <p>Dashboard</p>
+                </div>
+            </div>
+            <div className='flex justify-end items-center gap-5 flex-shrink-0'>
+                <div className='hidden sm:block'>
                     <p className='text-base text-gray-500'>
                         {formatBalanceValue(dataBalance?.value?.toString()||"",dataBalance?.decimals||0)} {dataBalance?.symbol}
                     </p>
@@ -33,12 +49,15 @@ function Navbar() {
                         size={3}
                         className='rounded-full border-2 border-white'
                     />
-                    <div>
+                    <div className='flex flex-col justify-end sm:block'>
                         <p className='text-gray-700 text-xs'>
                             {chain?.name||"Not Allowed"}
                         </p>
-                        <p className='text-gray-700'>
+                        <p className='text-gray-700 text-xs sm:text-base'>
                             {formatWalletAddress(address||"")}
+                        </p>
+                        <p className='block sm:hidden text-xs text-gray-500'>
+                            {formatBalanceValue(dataBalance?.value?.toString()||"",dataBalance?.decimals||0)} {dataBalance?.symbol}
                         </p>
                     </div>
 
