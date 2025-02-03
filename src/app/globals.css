@@ -4,7 +4,8 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --background-secondary: #041018;
+  --foreground: #052029;
 
   --primaryGreen-light: #00BB77;
   --primaryGreen-dark: #003522;
@@ -18,8 +19,8 @@
 }
 
 body {
-  background-color: #171717;
-  color: #eee
+  background-color: #052029;
+  color: #9FD1D4
 }
 
 .horizontal-scroll {

@@ -18,7 +18,7 @@ function Navbar() {
 
     return (
         <nav
-            className='flex justify-between items-center h-[90px] px-4 sm:px-8 absolute top-0 left-0 right-0 bg-black shadow-sm shadow-[#333]'
+            className='flex justify-between items-center h-[90px] px-4 sm:px-8 absolute top-0 left-0 right-0 bg-backgroundSecondary shadow-sm shadow-[#333]'
         >
             <div className='sm:w-[250px] mr-2'>
                 {/* <h1 className='text-lg sm:text-2xl font-bold text-gray-600'>LiquidNexus</h1> */}
