@@ -31,7 +31,7 @@ export const LineChart = ({data, lines, hasLegend=true}:LineChartParams) => { //
           { 
             lines.map((line, index)=>{
               return(
-                <Line key={line.dataKey+"linechartlineadfa"+index} type="monotone" dataKey={line.dataKey} stroke={line.stroke} />
+                <Line key={line.dataKey+"linechartlineadfa"+index} type="monotone" dataKey={line.dataKey} stroke={line.stroke} strokeWidth={2} />
               )
             })
           }

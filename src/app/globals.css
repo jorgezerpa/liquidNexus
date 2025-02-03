@@ -9,6 +9,8 @@
 
   --primaryGreen-light: #00BB77;
   --primaryGreen-dark: #003522;
+
+  --text-title: #fff;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -15,7 +15,8 @@ const config: Config = {
         primaryGreen: {
           light: "var(--primaryGreen-light)",
           dark: "var(--primaryGreen-dark)"
-        }
+        },
+        title:"var(--text-title)"
       },
     },
   },

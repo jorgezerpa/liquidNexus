@@ -14,77 +14,77 @@ const dataLineChart = [
   },
   {
     name: 'Feb',
-    "CPU": 4000,
+    "CPU": 4400,
     "Storage": 3000,
     "Bandwidth": 1398,
     amt: 2210,
   },
   {
     name: 'Mar',
-    "CPU": 4000,
+    "CPU": 4800,
     "Storage": 2000,
     "Bandwidth": 9800,
     amt: 2290,
   },
   {
     name: 'Apr',
-    "CPU": 4000,
+    "CPU": 4100,
     "Storage": 2780,
     "Bandwidth": 3908,
     amt: 2000,
   },
   {
     name: 'May',
-    "CPU": 4000,
+    "CPU": 4400,
     "Storage": 1890,
     "Bandwidth": 4800,
     amt: 2181,
   },
   {
     name: 'Jun',
-    "CPU": 4000,
+    "CPU": 4500,
     "Storage": 2390,
     "Bandwidth": 3800,
     amt: 2500,
   },
   {
     name: 'Jul',
-    "CPU": 4000,
+    "CPU": 4200,
     "Storage": 3490,
     "Bandwidth": 4300,
     amt: 2100,
   },
   {
     name: 'Aug',
-    "CPU": 4000,
+    "CPU": 4200,
     "Storage": 4000,
     "Bandwidth": 2400,
     amt: 2400,
   },
   {
     name: 'Sep',
-    "CPU": 4000,
+    "CPU": 4100,
     "Storage": 3000,
     "Bandwidth": 1398,
     amt: 2210,
   },
   {
     name: 'Oct',
-    "CPU": 4000,
+    "CPU": 4200,
     "Storage": 2000,
     "Bandwidth": 9800,
     amt: 2290,
   },
   {
     name: 'Nov',
-    "CPU": 4000,
+    "CPU": 4400,
     "Storage": 2780,
     "Bandwidth": 3908,
     amt: 2000,
   },
   {
     name: 'Dic',
-    "CPU": 4000,
+    "CPU": 4400,
     "Storage": 1890,
     "Bandwidth": 4800,
     amt: 2181,
@@ -138,46 +138,48 @@ export default function Home() {
     <div className="px-10 py-10">
 
 
-      <p className="text-xl text-gray-700 font-bold">Linked Cloud Services Providers</p>          
+      <p className="text-2xl mb-3 text-title font-bold">Linked Cloud Services Providers</p>          
       
-      <div className="flex justify-start gap-5 horizontal-scroll py-3 px-3 bg-gray-100 rounded-2xl">
+      <div className="flex justify-start gap-5 horizontal-scroll py-3 px-3 bg-white bg-opacity-15 rounded-2xl">
         {
           PROVIDERS.map((provider, i)=>{
             return (
-              <div key={provider.name+"homeproviderslistoverviewdsaa"+i} className="flex-shrink-0 w-[25%] bg-gray-200 rounded-xl p-4">
-                <p className="text-xl text-gray-700 font-bold">{provider.name}</p>   
+              <div key={provider.name+"homeproviderslistoverviewdsaa"+i} className="flex-shrink-0 w-[25%] bg-black bg-opacity-60 rounded-xl p-4">
+                <p className="text-xl text-gray-200 font-bold">{provider.name}</p>   
                 <div className="mt-5">
                   <div key={provider.name+"homeproviderslistoverviewdsaa"+i} className="flex justify-between mb-2">
-                    <p className="text-base font-bold text-black">Service</p>   
-                    <div className="text-base font-bold text-black">
+                    <p className="text-base font-bold ">Service</p>   
+                    <div className="text-base font-bold ">
                       State
                     </div>
                   </div>
-                  {
-                    provider.apis.map((api, j)=>{
-                      return(
-                        <div key={provider.name+"homeproviderslistoverviewdsaa"+i} className="flex justify-between">
-                          <p className="text-base text-gray-600">{api.name}</p>   
-                          <div className={`${api.state=="active"&&"text-green-600"} ${api.state=="paused"&&"text-yellow-500"}`}>
-                            {api.state}
+                  <div className="min-h-[150px]">
+                    {
+                      provider.apis.map((api, j)=>{
+                        return(
+                          <div key={provider.name+"homeproviderslistoverviewdsaa"+i} className="flex justify-between">
+                            <p className="text-base">{api.name}</p>   
+                            <div className={`${api.state=="active"&&"text-green-600"} ${api.state=="paused"&&"text-yellow-500"}`}>
+                              {api.state}
+                            </div>
                           </div>
+                        )
+                      })
+                    }
+                    {
+                      provider.apis.length>=3 &&
+                        <div>
+                          <p className="">...5 more</p>
                         </div>
-                      )
-                    })
-                  }
-                  {
-                    provider.apis.length>=3 &&
-                      <div>
-                        <p className="text-gray-600">...5 more</p>
-                      </div>
-                  }
+                    }
+                  </div>
                   <div className="flex justify-center items-center pt-5 pb-2 cursor-pointer" 
                     onClick={()=>{
                       router.push(`/dashboard/settings/apiKeys?provider=${provider.id}`)
                     }}
 
                   >
-                    <p>Manage</p>
+                    <p className="font-bold text-white hover:text-primaryGreen-light">Manage</p>
                   </div>
                 </div>       
               </div>
@@ -190,7 +192,7 @@ export default function Home() {
 
       <div className="py-10">
 
-      <p className="text-xl text-gray-700 font-bold mb-5">Active Contributions Summary</p>          
+      <p className="text-2xl text-title font-bold mb-5">Active Contributions Summary</p>          
        {/* <div className="flex justify-between">
          <div className="flex-shrink-0 w-[49%] bg-gray-100 rounded-xl p-4">
            <p className="text-xl text-gray-700 font-bold">Storage usage</p>          
@@ -204,17 +206,17 @@ export default function Home() {
        {/* <div className="h-5"></div> */}
    
        <div className="flex justify-between">
-         <div className="flex-shrink-0 w-[49%] bg-gray-100 rounded-xl p-4">
-           <p className="text-xl text-gray-700 font-bold mb-2">CPU</p>          
-           <LineChart data={dataLineChart} lines={[{ dataKey:"CPU", stroke:"#8884d8" }]} />
+         <div className="flex-shrink-0 w-[49%] bg-black bg-opacity-50 rounded-xl p-4 shadow-sm shadow-white">
+           <p className="text-xl text-gray-400 font-bold mb-2">CPU</p>          
+           <LineChart data={dataLineChart} lines={[{ dataKey:"CPU", stroke:"#00BB77" }]} />
          </div>
-         <div className="flex-shrink-0 w-[49%] bg-gray-100 rounded-xl p-4">
-           <p className="text-xl text-gray-700 font-bold mb-2">Bandwidth</p>          
+         <div className="flex-shrink-0 w-[49%] bg-black bg-opacity-50 rounded-xl p-4 shadow-sm shadow-white">
+           <p className="text-xl text-gray-400 font-bold mb-2">Bandwidth</p>          
            <LineChart data={dataLineChart} lines={[{ dataKey:"Bandwidth", stroke:"#8884d8" }]} />
          </div>
        </div>
-       <div className="mt-5 flex-shrink-0 w-[49%] bg-gray-100 rounded-xl p-4">
-           <p className="text-xl text-gray-700 font-bold">Storage usage</p>          
+       <div className="mt-5 flex-shrink-0 w-[49%] bg-black bg-opacity-50 rounded-xl p-4 shadow-sm shadow-white">
+           <p className="text-xl text-gray-400 font-bold">Storage usage</p>          
            <PieChart />
         </div>
 
