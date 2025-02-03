@@ -3,11 +3,7 @@ import { useState } from "react"
 import { useParams } from "next/navigation"
 import { useRouter } from "next/navigation"
 
-import { PowMining } from "@/components/dashboard/pages/allowedResources/PowMining"
 
-// { title: "Account preferences", link:"/accountPreferences", icon: ()=><IoRadioSharp size={20} /> },
-//                         { title: "API keys", link:"/apiKeys", icon: ()=><IoRadioSharp size={20} /> },
-//                         { title: "Wallet Addresses", link:"/walletAddress", icon: ()=><IoRadioSharp size={20} /> },
 const MAP_PARAM_TO_TITLE: any = {
   "accountPreferences": "Account preferences",
   "apiKeys": "API keys",

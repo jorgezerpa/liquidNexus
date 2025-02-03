@@ -108,7 +108,7 @@ function Sidebar({ isAdmin }:{ isAdmin?:boolean }) {
                     subitems={[
                         { title: "Account preferences", link:"/dashboard/settings/accountPreferences", icon: ()=><MdManageAccounts size={25} /> },
                         { title: "API keys", link:"/dashboard/settings/apiKeys", icon: ()=><FaServer size={25} /> },
-                        { title: "Wallet Addresses", link:"/dashboard/settings/walletAddress", icon: ()=><FaWallet size={25} /> },
+                        { title: "Wallet Addresses", link:"/dashboard/settings/walletAddresses", icon: ()=><FaWallet size={25} /> },
                     ]}
                 />
                 <MenuItem
