@@ -5,9 +5,10 @@ interface LineChartParams {
   data:any
   lines: { stroke:string, dataKey:string }[]
   hasLegend?: boolean
+  hasDot?: boolean
 }
 
-export const LineChart = ({data, lines, hasLegend=true}:LineChartParams) => { // Functional component
+export const LineChart = ({data, lines, hasLegend=true, hasDot=true}:LineChartParams) => { // Functional component
   return (
     <div className="h-[300px]">
       <ResponsiveContainer width="100%" height="100%">
@@ -31,7 +32,7 @@ export const LineChart = ({data, lines, hasLegend=true}:LineChartParams) => { //
           { 
             lines.map((line, index)=>{
               return(
-                <Line key={line.dataKey+"linechartlineadfa"+index} type="monotone" dataKey={line.dataKey} stroke={line.stroke} strokeWidth={2} />
+                <Line key={line.dataKey+"linechartlineadfa"+index} type="monotone" dot={hasDot} dataKey={line.dataKey} stroke={line.stroke} strokeWidth={2} />
               )
             })
           }

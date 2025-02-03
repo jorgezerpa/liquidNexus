@@ -4,9 +4,6 @@ import { LineChart } from "@/components/charts/LineChart"
 import { NidleChart } from "@/components/charts/NidleChart";
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import CPU from "@/components/dashboard/pages/allowedResources/CPU";
-import Bandwidth from "@/components/dashboard/pages/allowedResources/Bandwidth";
-import Storage from "@/components/dashboard/pages/allowedResources/Storage";
 
 
 const initialDataLines = [
@@ -65,7 +62,7 @@ const initialLines = [
     { key: 1, dataKey:"cpu", stroke:"#8884d8", totalValue: "23 Gbps" }, 
 ]
 
-export default function ResourceManagement() {
+export default function CPU() {
 
     const [selectedGraph, setSelectedGraph] = useState<number>(1)
     const [dataLineChart, setDataLineChart] = useState<any[]>(initialDataLines)
@@ -111,21 +108,41 @@ export default function ResourceManagement() {
   return (
     <div className="py-10 px-5">
 
-        <div className="flex justify-start items-center cursor-pointer">
-            <div onClick={()=>setSelectedGraph(1)} className={selectedGraph===1?"bg-primaryGreen-light w-[250px] py-2 border border-gray-50":"w-[250px] py-2 border border-gray-200"}>
-                <p className={`text-lg text-gray-200 font-bold text-center`}>Google Cloud</p>          
+      <div>
+        <p className="mb-5 text-2xl text-title font-bold mt-5">CPU</p>
+        <div className="flex">
+          <div className="flex-shrink-0 w-[50%] rounded-xl ">
+            <p className="mb-5 text-xl text-title">Current Consumption</p>
+            <LineChart data={dataLineChart} lines={lines} hasDot={false} />
+          </div>
+          <div className="flex-shrink-0 w-[50%] flex justify-center items-center flex-wrap gap-3">
+            <div className="w-[230px] flex justify-center items-center flex-col ">
+              <NidleChart percentage={.4} />
+              <p className="mb-5 text-base text-title">Usage of Max. CPU capacity</p>
             </div>
-            <div onClick={()=>setSelectedGraph(2)} className={selectedGraph===2?"bg-primaryGreen-light w-[250px] py-2 border border-gray-50":"w-[250px] py-2 border border-gray-200"}>
-                <p className="text-lg text-gray-200 font-bold text-center">Microsoft Azure</p>          
+            <div className="w-[230px] flex justify-center items-center flex-col ">
+              <NidleChart percentage={.84} />
+              <p className="mb-5 text-base text-title">Usage of Allowed CPU capacity</p>
             </div>
-            <div onClick={()=>setSelectedGraph(3)} className={selectedGraph===3?"bg-primaryGreen-light w-[250px] py-2 border border-gray-50":"w-[250px] py-2 border border-gray-200"}>
-                <p className="text-lg text-gray-200 font-bold text-center">Amazon Web Services</p>          
+          </div>
+        </div>
+        <div className="flex-shrink-0 w-[50%] flex-col justify-start items-start flex-wrap gap-3">
+            <div className="mb-5">
+              <p className="text-xl text-gray-200">Max. CPU % usage</p>
+              <div className="h-3 w-[100%]">
+                  <Slider value={slider1} onChange={(e)=>setSlider1(e as number)} />
+              </div>
+              <p className="text-base">{slider1}%</p>
+            </div>
+            <div className="mb-5">
+              <p className="text-xl text-gray-200">Max. IPS</p>
+              <div className="h-3 w-[100%]">
+                  <Slider value={slider2} onChange={(e)=>setSlider2(e as number)} />
+              </div>
+              <p className="text-base ">{slider2*10} ips</p>
             </div>
         </div>
-
-        <CPU />
-        <Bandwidth />
-        <Storage />
+      </div>
 
     </div>
   )
