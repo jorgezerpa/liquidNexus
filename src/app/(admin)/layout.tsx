@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/dashboard/Navbar";
 import { Sidebar } from "@/components/dashboard/Sidebar";
 import { Providers } from "./Providers";
+import { IoMdChatbubbles } from "react-icons/io";
 
 export default function RootLayout({
   children,
@@ -8,7 +9,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden relative">
           <Navbar />
           <div className="flex justify-start items-start">
               <div className="h-screen pt-[80px]">
@@ -23,6 +24,11 @@ export default function RootLayout({
                   </Providers>
                 </div>
               </div>
+          </div>
+          <div className="absolute bottom-[80px] right-[50px]">
+            <div className="w-[80px] h-[80px] rounded-full bg-backgroundSecondary shadow-md shadow-white flex justify-center items-center cursor-pointer">
+              <IoMdChatbubbles size={40} />
+            </div>
           </div>
     </div>
   );
