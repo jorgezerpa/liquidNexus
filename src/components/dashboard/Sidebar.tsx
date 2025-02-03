@@ -77,7 +77,7 @@ function Sidebar({ isAdmin }:{ isAdmin?:boolean }) {
                     icon={()=><IoMdHome size={25} />}
                     closeMenu={()=>{setShowMenu(false)}}
                 />
-                <MenuItemDropdown
+                {/* <MenuItemDropdown
                     title='Resource Management'
                     basePath='/dashboard/resourceManagement'
                     icon={()=><HiSquare3Stack3D size={25}  />}
@@ -87,6 +87,12 @@ function Sidebar({ isAdmin }:{ isAdmin?:boolean }) {
                         { title: "Bandwidth", link:"/dashboard/resourceManagement/bandwidth", icon: ()=><MdNetworkCheck size={25} /> },
                         { title: "Storage", link:"/dashboard/resourceManagement/storage", icon: ()=><MdStorage size={25} /> },
                     ]}
+                /> */}
+                <MenuItem
+                    title='Resource Management'
+                    link='/dashboard/resourceManagement'
+                    icon={()=><HiSquare3Stack3D size={25}  />}
+                    closeMenu={()=>{setShowMenu(false)}}
                 />
                 <MenuItem
                     title='Rewards'
