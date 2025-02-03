@@ -54,3 +54,33 @@ body {
 .horizontal-scroll::-webkit-scrollbar-button {
     display: none; /* Hide the arrows if you don't want them */
 }
+
+.vertical-scroll {
+  overflow-y: scroll; /* Use 'auto' to only show scrollbar when needed */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: lightgray transparent; /* For Firefox */
+}
+
+/* For WebKit browsers (Chrome, Safari) */
+.vertical-scroll::-webkit-scrollbar {
+  height: 6px; /* Adjust height for thickness */
+}
+
+.vertical-scroll::-webkit-scrollbar-track {
+  background: transparent; /* Make the track transparent */
+}
+
+.vertical-scroll::-webkit-scrollbar-thumb {
+  background-color: lightgray;
+  border-radius: 3px; /* Rounded corners */
+}
+
+.vertical-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: darkgray; /* Slightly darker on hover */
+}
+
+
+/* Optional: Style the scrollbar button (arrows) */
+.vertical-scroll::-webkit-scrollbar-button {
+    display: none; /* Hide the arrows if you don't want them */
+}
