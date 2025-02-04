@@ -165,9 +165,9 @@ export default function Rewards() {
           <p className="text-2xl font-bold text-gray-200">Recent Activity</p>
           <div className="h-5"></div>
           {
-            recentActivity.map((activity, i)=>{
+            recentActivity.map((activity, j)=>{
               return(
-                <div className="flex-shrink-0 w-[100%] bg-white bg-opacity-10 rounded-xl px-4 py-1 mb-3">
+                <div key={"uniquiidforreaawasdlistsactivsummary"+j} className="flex-shrink-0 w-[100%] bg-white bg-opacity-10 rounded-xl px-4 py-1 mb-3">
                   <div className="flex  justify-between mb-4">
                     <p className="text-small md:text-lg text-gray-100">{activity.activity}</p>          
                     <p className="text-sm  flex-shrink-0">{ activity.time }</p>          
@@ -188,7 +188,7 @@ export default function Rewards() {
           {
             rewardHistory.map((activity, i)=>{
               return(
-                <div className="flex-shrink-0 w-[100%] bg-white bg-opacity-10 rounded-xl px-4 py-1 mb-3">
+                <div key={"dfa"+i+"unqiueidforreqwsummaryhistoreuyal"} className="flex-shrink-0 w-[100%] bg-white bg-opacity-10 rounded-xl px-4 py-1 mb-3">
                   <div className="flex  justify-between mb-2">
                     <p className="text-base sm:text-lg text-gray-100 font-bold"><span className="font-bold">Reward:</span> {activity.reward}</p>          
                     <p className="text-base sm:text-xl text-gray-200 ">{ activity.time }</p>          

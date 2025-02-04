@@ -1,9 +1,8 @@
 'use client'
-import { useState } from "react"
+import { } from "react"
 import { useParams } from "next/navigation"
 import { useRouter } from "next/navigation"
 
-import { CPU } from "@/components/dashboard/pages/allowedResources/CPU"
 
 const MAP_PARAM_TO_TITLE: any = {
   "cpu": "CPU",
@@ -12,7 +11,7 @@ const MAP_PARAM_TO_TITLE: any = {
 }
 
 const MAP_PARAM_TO_COMPONENT: any = {
-  "cpu": () => <CPU />,
+  "cpu": () => "cpu",
   "bandwidth": () => "Bandwidth",
   "storage": () => "Storage",
   // "pow-mining": () => <PowMining />,

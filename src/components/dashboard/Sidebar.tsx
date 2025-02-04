@@ -3,10 +3,8 @@ import React, { useEffect, useState } from 'react'
 import type {ReactNode} from 'react'
 import Link from 'next/link'
 import { signOut } from 'next-auth/react'
-import { IoRadioSharp } from "react-icons/io5";
 import { TiThMenu } from "react-icons/ti";
 import { RiCloseLargeLine } from "react-icons/ri";
-import { useCloudProviderStore } from '@/store/CloudProviderStore'
 import { FaChevronDown } from "react-icons/fa";
 import { useRouter, usePathname } from 'next/navigation'
 
@@ -16,21 +14,14 @@ import { GiTwoCoins } from "react-icons/gi";
 import { IoIosSettings } from "react-icons/io";
 import { IoIosDocument } from "react-icons/io";
 
-import { BsFillCpuFill } from "react-icons/bs";
-import { MdNetworkCheck } from "react-icons/md";
-import { MdStorage } from "react-icons/md";
-
 import { MdManageAccounts } from "react-icons/md";
 import { FaServer } from "react-icons/fa6";
 import { FaWallet } from "react-icons/fa";
 
-function Sidebar({ isAdmin }:{ isAdmin?:boolean }) {
-    const pathname = usePathname()
-    const cloudProvider = useCloudProviderStore()
+function Sidebar({  }:{ isAdmin?:boolean }) {
 
     const [windowWidth, setWindowWidth] = useState(0)
     const [showMenu, setShowMenu] = useState(false)
-    const [showCloudProviders, setShowCloudProviders] = useState(false)
 
     useEffect(()=>{
         setWindowWidth(window.innerWidth)
@@ -40,10 +31,7 @@ function Sidebar({ isAdmin }:{ isAdmin?:boolean }) {
         window.addEventListener("resize", resizeHandler)
     }, [])
 
-    const handleSelectProvider = (index:number) => {
-        cloudProvider.setProvider(index)
-        setShowCloudProviders(false)
-    }
+
 
   return (
     <div className={`${(windowWidth<800&&showMenu)&&"fixed top-5 left-5 bottom-5 right-5"} ${windowWidth>800&&"h-full"}`}>

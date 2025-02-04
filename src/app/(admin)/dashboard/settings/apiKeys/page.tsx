@@ -136,9 +136,9 @@ const PROVIDERS_MAP = {
   },
 };
 
-let allowed_services = ["google-cloud","filecoin","azure","amazon-web-services"]
+const allowed_services = ["google-cloud","filecoin","azure","amazon-web-services"]
 
-let provider_title_map:any = {
+const provider_title_map:any = {
   "amazon-web-services":"Amazon Web Sevices",
   "azure":"Azure",
   "google-cloud":"Google Cloud",

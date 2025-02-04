@@ -1,15 +1,10 @@
 'use client'
 import { HintHover } from "@/components/shared/HintHover";
-import { useSearchParams, useRouter } from "next/navigation"
-import { useState } from "react";
 import { MdAddToPhotos } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
 export default function WalletAddresses() {
-  const router = useRouter()
-  const params = useSearchParams()
-  const provider = params.get("provider") as string
 
   const WALLETS = [
     {
@@ -49,7 +44,7 @@ export default function WalletAddresses() {
       {
         WALLETS.map((wallet, i)=>{
           return (
-            <div className="flex">
+            <div key={i+"uquewallethere"} className="flex">
               <div>
                 <input type="checkbox" className="w-5 h-5 bg-white" />
               </div>

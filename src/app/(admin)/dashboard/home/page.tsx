@@ -1,5 +1,5 @@
 'use client'
-import { useRouter, useSearchParams } from "next/navigation"
+import { useRouter} from "next/navigation"
 import { PieChart } from "@/components/charts/PieChart"
 import { LineChart } from "@/components/charts/LineChart"
 import { HintHover } from "@/components/shared/HintHover";
@@ -156,7 +156,7 @@ export default function Home() {
                   </div>
                   <div className="min-h-[150px]">
                     {
-                      provider.apis.map((api, j)=>{
+                      provider.apis.map((api)=>{
                         return(
                           <div key={provider.name+"homeproviderslistoverviewdsaa"+i} className="flex justify-between">
                             <p className="text-base">{api.name}</p>   

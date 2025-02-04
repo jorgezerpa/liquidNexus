@@ -1,8 +1,5 @@
 'use client'
 import { useEffect, useState } from "react"
-import { LineChart } from "@/components/charts/LineChart"
-import { NidleChart } from "@/components/charts/NidleChart";
-import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import CPU from "@/components/dashboard/pages/allowedResources/CPU";
 import Bandwidth from "@/components/dashboard/pages/allowedResources/Bandwidth";
@@ -69,9 +66,9 @@ const initialLines = [
 export default function ResourceManagement() {
 
     const [selectedGraph, setSelectedGraph] = useState<number>(1)
-    const [dataLineChart, setDataLineChart] = useState<any[]>(initialDataLines)
-    const [lines, setLines] = useState(initialLines)
-    const [hiddenLines, setHiddenLines] = useState<number[]>([])
+    const [, setDataLineChart] = useState<any[]>(initialDataLines)
+    const [, setLines] = useState(initialLines)
+    const [, setHiddenLines] = useState<number[]>([])
 
 
     useEffect(()=>{

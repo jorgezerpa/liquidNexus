@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useState } from "react"
-import { LineChart } from "@/components/charts/LineChart"
 import { PieChartDetailed } from "@/components/charts/PieChartDetailed";
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
@@ -64,10 +63,10 @@ const initialLines = [
 
 export default function Storage() {
 
-    const [selectedGraph, setSelectedGraph] = useState<number>(1)
-    const [dataLineChart, setDataLineChart] = useState<any[]>(initialDataLines)
-    const [lines, setLines] = useState(initialLines)
-    const [hiddenLines, setHiddenLines] = useState<number[]>([])
+    const [selectedGraph, ] = useState<number>(1)
+    const [, setDataLineChart] = useState<any[]>(initialDataLines)
+    const [, setLines] = useState(initialLines)
+    const [, setHiddenLines] = useState<number[]>([])
 
     const [slider1, setSlider1] = useState<number>(50)
 

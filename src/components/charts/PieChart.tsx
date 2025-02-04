@@ -4,7 +4,7 @@ import { PieChart as PieCharRecharts, Pie, Cell, ResponsiveContainer, Tooltip } 
 const COLORS = ['#223344', '#223344', '#223344'];
 
 const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }:any) => {
+const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }:any) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
@@ -18,7 +18,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 
 export const PieChart = () => {
 
-    const [data, setData] = useState([
+    const [data, ] = useState([
         { name: 'Personal', value: 400 },
         { name: 'Free', value: 300 },
         { name: 'Contributing', value: 300 },
