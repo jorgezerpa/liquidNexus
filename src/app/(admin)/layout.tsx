@@ -25,10 +25,11 @@ export default function RootLayout({
                 </div>
               </div>
           </div>
-          <div className="absolute bottom-[80px] right-[50px]">
+          <div className="absolute bottom-[50px] right-[50px] flex flex-col justify-center items-center gap-1">
             <div className="w-[80px] h-[80px] rounded-full bg-backgroundSecondary shadow-md shadow-white flex justify-center items-center cursor-pointer">
               <IoMdChatbubbles size={40} />
             </div>
+            <p>Nexus AI</p>
           </div>
     </div>
   );
