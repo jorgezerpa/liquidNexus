@@ -1,4 +1,5 @@
 'use client'
+import { HintHover } from "@/components/shared/HintHover";
 import { useSearchParams, useRouter } from "next/navigation"
 import { useState } from "react";
 import { MdAddToPhotos } from "react-icons/md";
@@ -33,7 +34,10 @@ export default function WalletAddresses() {
 
   return (
     <div className="px-5 py-5">
-      <p className="text-3xl text-title font-bold mb-5">Available Cloud Providers</p>
+      <p className="text-3xl text-title font-bold mb-5 flex items-center gap-1">
+        Wallet addresses
+        <HintHover text="Wallets you provided to receive rewards. You can choose only one at time." />
+      </p>
 
       <div className="flex justify-center items-center flex-col mb-5 mt-10">
         <div className="cursor-pointer">
@@ -49,7 +53,7 @@ export default function WalletAddresses() {
               <div>
                 <input type="checkbox" className="w-5 h-5 bg-white" />
               </div>
-              <div key={wallet.address+i} className="flex-shrink-0 w-[100%] bg-white bg-opacity-10 rounded-xl px-4 py-1 mb-3">
+              <div key={wallet.address+i} className="flex-shrink-0 flex-1 bg-white bg-opacity-10 rounded-xl px-4 py-1 mb-3">
                 <div className="flex  justify-end mb-2 gap-2">
                   <p className="text-lg text-white cursor-pointer">
                     <MdEdit size={27} />

@@ -7,6 +7,7 @@ import 'rc-slider/assets/index.css';
 import CPU from "@/components/dashboard/pages/allowedResources/CPU";
 import Bandwidth from "@/components/dashboard/pages/allowedResources/Bandwidth";
 import Storage from "@/components/dashboard/pages/allowedResources/Storage";
+import { HintHover } from "@/components/shared/HintHover";
 
 
 const initialDataLines = [
@@ -72,23 +73,6 @@ export default function ResourceManagement() {
     const [lines, setLines] = useState(initialLines)
     const [hiddenLines, setHiddenLines] = useState<number[]>([])
 
-    const [slider1, setSlider1] = useState<number>(50)
-    const [slider2, setSlider2] = useState<number>(43)
-    const [slider3, setSlider3] = useState<number>(68)
-    const [slider4, setSlider4] = useState<number>(23)
-
-    const handleHideLine = (key:number) => {
-        // const isHidden = hiddenLines.includes(key)
-
-        // let newHiddenLines:number[] = []
-        // if(isHidden) newHiddenLines = [...hiddenLines.filter(lineKey => lineKey!=key)]
-        // if(!isHidden) newHiddenLines = [...hiddenLines, key] 
-
-        // setHiddenLines(newHiddenLines)
-        // setLines([
-        //     ...(selectedGraph==1?initialLinesBa:initialLinesKPIs).filter(l=>!newHiddenLines.includes(l.key))
-        // ])
-    }
 
     useEffect(()=>{
         if(selectedGraph==1){
@@ -112,6 +96,9 @@ export default function ResourceManagement() {
     <div className="py-10 px-5">
 
         <div className="flex justify-start items-center cursor-pointer">
+            <div className="mr-2">
+              <HintHover text="Select a cloud provider to see the detailed resource usage and modify it's limits." />
+            </div>
             <div onClick={()=>setSelectedGraph(1)} className={selectedGraph===1?"bg-primaryGreen-light w-[250px] py-2 border border-gray-50":"w-[250px] py-2 border border-gray-200"}>
                 <p className={`text-lg text-gray-200 font-bold text-center`}>Google Cloud</p>          
             </div>

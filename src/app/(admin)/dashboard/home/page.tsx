@@ -2,7 +2,8 @@
 import { useRouter, useSearchParams } from "next/navigation"
 import { PieChart } from "@/components/charts/PieChart"
 import { LineChart } from "@/components/charts/LineChart"
-import { BarChart } from "@/components/charts/BarChart";
+import { HintHover } from "@/components/shared/HintHover";
+
 
 const dataLineChart = [
   {
@@ -192,7 +193,7 @@ export default function Home() {
 
       <div className="py-10">
 
-      <p className="text-2xl text-title font-bold mb-5">Active Contributions Summary</p>          
+      <p className="text-2xl text-title font-bold mb-5 flex items-center gap-1">Active Contributions Summary <HintHover text="Resume of all contribution made from all cloud providers." /></p>          
        {/* <div className="flex justify-between">
          <div className="flex-shrink-0 w-[49%] bg-gray-100 rounded-xl p-4">
            <p className="text-xl text-gray-700 font-bold">Storage usage</p>          
