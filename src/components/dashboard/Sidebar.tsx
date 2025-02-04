@@ -118,7 +118,7 @@ function Sidebar({  }:{ isAdmin?:boolean }) {
             </div>
         </div>
 
-    <div className={`flex justify-center items-center fixed bottom-[175px] right-[22.5px] w-[50px] h-[50px] bg-primaryGreen-light rounded-full ${windowWidth>800&&"hidden"}`} onClick={()=>setShowMenu(!showMenu)}>
+    <div className={`flex justify-center items-center fixed bottom-[175px] right-[27.5px] w-[50px] h-[50px] bg-primaryGreen-light rounded-full ${windowWidth>800&&"hidden"}`} onClick={()=>setShowMenu(!showMenu)}>
         { !showMenu && <TiThMenu size={30} color='white' /> }
         { showMenu && <RiCloseLargeLine size={30} color='white' /> }
     </div>
