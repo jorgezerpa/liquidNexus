@@ -95,7 +95,7 @@ export default function ResourceManagement() {
   return (
     <div className="py-10 px-5">
 
-        <div className="flex justify-start items-center cursor-pointer">
+        <div className="flex flex-col gap-2 lg:gap-0 lg:flex-row justify-start items-center cursor-pointer">
             <div className="mr-2">
               <HintHover text="Select a cloud provider to see the detailed resource usage and modify it's limits." />
             </div>
@@ -107,6 +107,9 @@ export default function ResourceManagement() {
             </div>
             <div onClick={()=>setSelectedGraph(3)} className={selectedGraph===3?"bg-primaryGreen-light w-[250px] py-2 border border-gray-50":"w-[250px] py-2 border border-gray-200"}>
                 <p className="text-lg text-gray-200 font-bold text-center">Amazon Web Services</p>          
+            </div>
+            <div onClick={()=>setSelectedGraph(4)} className={selectedGraph===4?"bg-primaryGreen-light w-[250px] py-2 border border-gray-50":"w-[250px] py-2 border border-gray-200"}>
+                <p className="text-lg text-gray-200 font-bold text-center">Filecoin</p>          
             </div>
         </div>
 

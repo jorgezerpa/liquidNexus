@@ -160,7 +160,7 @@ export default function Settings() {
                 {
                   PROVIDERS.map((provider, i)=>{
                     return (
-                      <div onClick={()=>router.push(`/dashboard/settings/apiKeys?provider=${provider.id}`)} key={provider.name+"homeproviderslistoverviewdsaa"+i} className="cursor-pointer flex-shrink-0 w-[25%] bg-black bg-opacity-60 rounded-xl p-4 shadow-sm shadow-white">
+                      <div onClick={()=>router.push(`/dashboard/settings/apiKeys?provider=${provider.id}`)} key={provider.name+"homeproviderslistoverviewdsaa"+i} className="cursor-pointer flex-shrink-0 min-w-[230px] w-[25%] bg-black bg-opacity-60 rounded-xl p-4 shadow-sm shadow-white">
                         <p className="text-xl text-gray-200 font-bold">{provider.name}</p>   
                         <div className="mt-5">
                           <div key={provider.name+"homeproviderslistoverviewdsaa"+i} className="flex justify-between mb-2">
@@ -220,8 +220,8 @@ function API({api}:any) {
   const [show, setShow] = useState(false)
 
   return (
-    <div className="flex justify-start mb-20">
-      <p className="text-base w-[150px]">{api.name}</p>   
+    <div className="flex flex-col md:flex-row gap-2 md:gap-0 justify-start mb-20">
+      <p className="text-base w-[150px] font-bold">{api.name}</p>   
       <div className="flex gap-1 items-center mr-6">
         <Toggle
           id='cheese-status'
@@ -231,7 +231,7 @@ function API({api}:any) {
         />
         <label htmlFor='cheese-status' className={`${checked&&"text-green-600"} ${!checked&&"text-yellow-500"}`}>{checked?"active":"paused"}</label>
       </div>
-      <div className="w-[50%] flex">
+      <div className="w-[100%] lg:w-[50%] flex">
         <p className="text-base flex-shrink-0">api key:</p>   
         <input type={show?"text":"password"} className="bg-white bg-opacity-0 border-b border-gray-400 w-[100%] px-2 outline-none" />
         <div onClick={()=>setShow(!show)} className="cursor-pointer ml-4">

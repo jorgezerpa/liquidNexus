@@ -48,7 +48,7 @@ export const PieChartDetailed = () => {
             </ResponsiveContainer>
         </div>
             
-        <div className="w-[40%] flex gap-4 justify-center">
+        <div className="w-[100%] lg:w-[40%] flex flex-col sm:flex-row gap-4 justify-center">
             {data.map((entry, index) => (
             <div key={entry.name + "legentitemsforinsightssdkfsdakf"} className="flex items-center mb-2 cursor-pointer">
                 <div className="w-4 h-4 rounded-full mr-2" style={{ backgroundColor: COLORS[index % COLORS.length] }}></div>

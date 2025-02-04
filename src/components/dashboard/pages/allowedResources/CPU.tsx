@@ -110,12 +110,12 @@ export default function CPU() {
 
       <div>
         <p className="mb-5 text-2xl text-title font-bold mt-5">CPU</p>
-        <div className="flex">
-          <div className="flex-shrink-0 w-[50%] rounded-xl ">
+        <div className="flex flex-col lg:flex-row">
+          <div className="flex-shrink-0 w-[98%] lg:w-[50%] rounded-xl ">
             <p className="mb-5 text-xl text-title">Current Consumption</p>
             <LineChart data={dataLineChart} lines={lines} hasDot={false} />
           </div>
-          <div className="flex-shrink-0 w-[50%] flex justify-center items-center flex-wrap gap-3">
+          <div className="flex-shrink-0 w-[100%] lg:w-[50%] flex justify-center items-center flex-wrap gap-3">
             <div className="w-[230px] flex justify-center items-center flex-col ">
               <NidleChart percentage={.4} />
               <p className="mb-5 text-base text-title">Usage of Max. CPU capacity</p>
@@ -126,7 +126,7 @@ export default function CPU() {
             </div>
           </div>
         </div>
-        <div className="flex-shrink-0 w-[50%] flex-col justify-start items-start flex-wrap gap-3">
+        <div className="flex-shrink-0 w-[100%] lg:w-[50%] flex-col justify-start items-start flex-wrap gap-3">
             <div className="mb-5">
               <p className="text-xl text-gray-200">Max. CPU % usage</p>
               <div className="h-3 w-[100%]">

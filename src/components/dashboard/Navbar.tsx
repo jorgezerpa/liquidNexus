@@ -42,7 +42,7 @@ function Navbar() {
                         {formatBalanceValue(dataBalance?.value?.toString()||"",dataBalance?.decimals||0)} {dataBalance?.symbol}
                     </p>
                 </div>
-                <div onClick={()=>setShowProfileOptions(!showProfileOptions)} className='relative bg-primaryGreen-light rounded-xl px-5 py-3 flex gap-3 justify-center items-center cursor-pointer'>
+                <div onClick={()=>setShowProfileOptions(!showProfileOptions)} className='relative bg-primaryGreen-light rounded-xl px-2 sm:px-5 py-3 flex gap-3 justify-center items-center cursor-pointer'>
                     <BlockiesSvg 
                         address={address || ""}
                         size={3}

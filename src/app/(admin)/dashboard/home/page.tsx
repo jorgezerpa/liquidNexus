@@ -136,16 +136,16 @@ export default function Home() {
   const router = useRouter()
 
   return (
-    <div className="px-10 py-10">
+    <div className="px-3 sm:px-10 py-10">
 
 
       <p className="text-2xl mb-3 text-title font-bold">Linked Cloud Services Providers</p>          
       
-      <div className="flex justify-start gap-5 horizontal-scroll py-3 px-3 bg-white bg-opacity-15 rounded-2xl">
+      <div className="flex justify-start gap-5 horizontal-scroll py-3 px-1 sm:px-3 bg-white bg-opacity-15 rounded-2xl">
         {
           PROVIDERS.map((provider, i)=>{
             return (
-              <div key={provider.name+"homeproviderslistoverviewdsaa"+i} className="flex-shrink-0 w-[25%] bg-black bg-opacity-60 rounded-xl p-4">
+              <div key={provider.name+"homeproviderslistoverviewdsaa"+i} className="flex-shrink-0 min-w-[230px] w-[25%] bg-black bg-opacity-60 rounded-xl px-1 sm:px-4 py-4">
                 <p className="text-xl text-gray-200 font-bold">{provider.name}</p>   
                 <div className="mt-5">
                   <div key={provider.name+"homeproviderslistoverviewdsaa"+i} className="flex justify-between mb-2">
@@ -206,17 +206,17 @@ export default function Home() {
        </div> */}
        {/* <div className="h-5"></div> */}
    
-       <div className="flex justify-between">
-         <div className="flex-shrink-0 w-[49%] bg-black bg-opacity-50 rounded-xl p-4 shadow-sm shadow-white">
+       <div className="lg:flex justify-between">
+         <div className="flex-shrink-0 w-[98%] lg:w-[49%] bg-black bg-opacity-50 rounded-xl p-4 shadow-sm shadow-white">
            <p className="text-xl text-gray-400 font-bold mb-2">CPU</p>          
            <LineChart data={dataLineChart} lines={[{ dataKey:"CPU", stroke:"#00BB77" }]} />
          </div>
-         <div className="flex-shrink-0 w-[49%] bg-black bg-opacity-50 rounded-xl p-4 shadow-sm shadow-white">
+         <div className="mt-5 lg:mt-0 flex-shrink-0 w-[98%] lg:w-[49%] bg-black bg-opacity-50 rounded-xl p-4 shadow-sm shadow-white">
            <p className="text-xl text-gray-400 font-bold mb-2">Bandwidth</p>          
            <LineChart data={dataLineChart} lines={[{ dataKey:"Bandwidth", stroke:"#8884d8" }]} />
          </div>
        </div>
-       <div className="mt-5 flex-shrink-0 w-[49%] bg-black bg-opacity-50 rounded-xl p-4 shadow-sm shadow-white">
+       <div className="mt-5 flex-shrink-0 w-[98%] lg:w-[49%] bg-black bg-opacity-50 rounded-xl p-4 shadow-sm shadow-white">
            <p className="text-xl text-gray-400 font-bold">Storage usage</p>          
            <PieChart />
         </div>

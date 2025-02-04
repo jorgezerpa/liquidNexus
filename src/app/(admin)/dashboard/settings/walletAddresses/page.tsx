@@ -54,7 +54,7 @@ export default function WalletAddresses() {
                 <input type="checkbox" className="w-5 h-5 bg-white" />
               </div>
               <div key={wallet.address+i} className="flex-shrink-0 flex-1 bg-white bg-opacity-10 rounded-xl px-4 py-1 mb-3">
-                <div className="flex  justify-end mb-2 gap-2">
+                <div className="flex  md:justify-end mb-2 gap-2">
                   <p className="text-lg text-white cursor-pointer">
                     <MdEdit size={27} />
                   </p>          
@@ -62,17 +62,17 @@ export default function WalletAddresses() {
                     <MdDelete size={27} />  
                   </p>          
                 </div>
-                <div className="flex  justify-between mb-2">
-                  <p className="text-lg text-gray-100 font-bold">Address: {wallet.address}</p>          
-                  <p className="text-xl text-gray-200 ">added on: {wallet.addedOn}</p>          
+                <div className="flex  flex-col md:flex-row justify-between mb-2">
+                  <p className="text-lg text-gray-100 break-all"><span className="font-bold">Address: </span>{wallet.address}</p>          
+                  <p className="text-xl text-gray-200 "><span className="font-bold">added on: </span>{wallet.addedOn}</p>          
                 </div>
                 <div className="flex  justify-between">
-                  <p className="text-lg">Total rewarded amount: {wallet.totalRewardedAmount}</p>          
+                  <p className="text-lg"><span className="font-bold">Total rewarded amount: </span>{wallet.totalRewardedAmount}</p>          
                 </div>
                 <div className="flex  justify-between">
-                  <p className="text-lg">Last Reward: {wallet.lastReward}</p>          
+                  <p className="text-lg"><span className="font-bold">Last Reward: </span>{wallet.lastReward}</p>          
                 </div>
-                <div className="flex  justify-center">
+                <div className="flex  justify-center mt-4">
                   <p className="text-lg text-white cursor-pointer font-bold mb-3">See wallet historial</p>          
                 </div>
               </div>

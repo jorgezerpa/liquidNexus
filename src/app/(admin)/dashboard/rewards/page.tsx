@@ -154,14 +154,14 @@ export default function Rewards() {
   return (
     <div className="py-5 px-5">
       
-      <div className="flex justify-between">
-        <div className="flex-shrink-0 w-[69%] bg-black bg-opacity-40 shadow-sm shadow-white rounded-xl p-4">
-          <p className="text-5xl font-bold text-title">$1565.55</p>
-          <p className="text-xl text-green-300 mb-10">+2% increase per day (last 30d)</p>
-          <p className="text-xl text-gray-200 font-bold mb-2">Daily revenue</p>          
+      <div className="flex justify-between flex-col xl:flex-row gap-3 xl:gap-0">
+        <div className="flex-shrink-0 w-[100%] xl:w-[69%] bg-black bg-opacity-40 shadow-sm shadow-white rounded-xl p-4">
+          <p className="text-4xl md:text-5xl font-bold text-title">$1565.55</p>
+          <p className="text-xs md:text-xl text-green-300 mb-10">+2% increase per day (last 30d)</p>
+          <p className="text-base md:text-xl text-gray-200 font-bold mb-2">Daily revenue</p>          
           <LineChart data={dataLineChart} lines={[{ dataKey:"amount", stroke:"#8884d8" }]} hasLegend={false} />
         </div>
-        <div className="w-[29%] h-[500px] vertical-scroll rounded-xl px-3 bg-black bg-opacity-40 shadow-sm shadow-white py-3">
+        <div className="w-[100%] xl:w-[29%] h-[500px] vertical-scroll rounded-xl px-3 bg-black bg-opacity-40 shadow-sm shadow-white py-3">
           <p className="text-2xl font-bold text-gray-200">Recent Activity</p>
           <div className="h-5"></div>
           {
@@ -169,7 +169,7 @@ export default function Rewards() {
               return(
                 <div className="flex-shrink-0 w-[100%] bg-white bg-opacity-10 rounded-xl px-4 py-1 mb-3">
                   <div className="flex  justify-between mb-4">
-                    <p className="text-lg text-gray-100 font-bold">{activity.activity}</p>          
+                    <p className="text-small md:text-lg text-gray-100">{activity.activity}</p>          
                     <p className="text-sm  flex-shrink-0">{ activity.time }</p>          
                   </div>
                 </div>
@@ -190,14 +190,14 @@ export default function Rewards() {
               return(
                 <div className="flex-shrink-0 w-[100%] bg-white bg-opacity-10 rounded-xl px-4 py-1 mb-3">
                   <div className="flex  justify-between mb-2">
-                    <p className="text-lg text-gray-100 font-bold">Reward: {activity.reward}</p>          
-                    <p className="text-xl text-gray-200 ">{ activity.time }</p>          
+                    <p className="text-base sm:text-lg text-gray-100 font-bold"><span className="font-bold">Reward:</span> {activity.reward}</p>          
+                    <p className="text-base sm:text-xl text-gray-200 ">{ activity.time }</p>          
                   </div>
                   <div className="flex  justify-between">
-                    <p className="text-lg">paid to: {activity.paidTo}</p>          
+                    <p className="text-base sm:text-lg"><span className="font-bold">paid to:</span> {activity.paidTo}</p>          
                   </div>
                   <div className="flex  justify-between">
-                    <p className="text-lg">Contribution: {activity.activity}</p>          
+                    <p className="text-base sm:text-lg"><span className="font-bold">Contribution:</span> {activity.activity}</p>          
                   </div>
                 </div>
               )
@@ -205,6 +205,8 @@ export default function Rewards() {
           }
         </div>
       </div>
+      
+      <div className="h-72"></div>
     
     </div>
   )

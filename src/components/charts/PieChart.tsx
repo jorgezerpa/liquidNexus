@@ -25,7 +25,7 @@ export const PieChart = () => {
     ])
 
   return (
-    <div className='flex justify-center'>
+    <div className='flex flex-col sm:flex-row justify-center items-center'>
         <div className="h-[300px] w-[300px]">
             <ResponsiveContainer width="100%" height="100%">
                 <PieCharRecharts>

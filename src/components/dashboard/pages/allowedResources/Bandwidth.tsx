@@ -110,12 +110,12 @@ export default function Bandwidth() {
 
       <div>
         <p className="mb-5 text-2xl text-title font-bold mt-5">Bandwidth</p>
-        <div className="flex">
-          <div className="flex-shrink-0 w-[50%] rounded-xl ">
+        <div className="flex flex-col lg:flex-row">
+          <div className="flex-shrink-0 w-[100%] lg:w-[50%] rounded-xl ">
             <p className="mb-5 text-xl text-title">Current Consumption</p>
             <LineChart data={dataLineChart} lines={lines} hasDot={false} />
           </div>
-          <div className="flex-shrink-0 w-[50%] flex flex-col justify-center  flex-wrap gap-3">
+          <div className="flex-shrink-0 w-[100%] lg:w-[50%] flex flex-col justify-center  flex-wrap gap-3">
             <div className="mb-5">
               <p className="text-xl text-gray-200">Max. kbps</p>
               <div className="h-3 w-[100%]">
