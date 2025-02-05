@@ -68,20 +68,20 @@ const recentActivity = [
   {
     activity: "Contributed 5GB bandwidth to Node X",
     time: "30s ago",
-    info1: "Reward amount: 0.04 $NEXUS",
+    info1: "Reward amount: 0.04 $USDC",
     info2: "Paid to: 0x334...234",
   },
   {
     activity: "Contributed 5GB bandwidth to hyperliquid nodes syncronization",
     time: "47s ago",
-    info1: "Reward amount: 0.23 $NEXUS",
+    info1: "Reward amount: 0.23 $USDC",
     info2: "Paid to: 0x334...234",
   },
   {
     activity: "Disable Google Cloud Storage API",
     time: "2min ago",
     info1: "Connected since: 01/01/2025",
-    info2: "Generated amount API contributions: 300$",
+    info2: "Generated amount API contributions: 300$USDC",
   },
   {
     activity: "Enable AWS S3 API for storage contributions",
@@ -92,20 +92,20 @@ const recentActivity = [
   {
     activity: "Contributed 5GB bandwidth to Node X",
     time: "30s ago",
-    info1: "Reward amount: 0.04 $NEXUS",
+    info1: "Reward amount: 0.04 $USDC",
     info2: "Paid to: 0x334...234",
   },
   {
     activity: "Contributed 5GB bandwidth to hyperliquid nodes syncronization",
     time: "47s ago",
-    info1: "Reward amount: 0.23 $NEXUS",
+    info1: "Reward amount: 0.23 $USDC",
     info2: "Paid to: 0x334...234",
   },
   {
     activity: "Disable Google Cloud Storage API",
     time: "2min ago",
     info1: "Connected since: 01/01/2025",
-    info2: "Generated amount API contributions: 300$",
+    info2: "Generated amount API contributions: 300$USDC",
   },
   {
     activity: "Enable AWS S3 API for storage contributions",
@@ -117,31 +117,31 @@ const recentActivity = [
 
 const rewardHistory = [
   {
-    reward: "20 USDT",
+    reward: "20 $USDC",
     paidTo: "0x334...234",
     activity: "Contributed 5GB bandwidth to Node X",
     time: "30s ago",
-    info1: "Reward amount: 0.04 $NEXUS",
+    info1: "Reward amount: 0.04 $USDC",
     info2: "Paid to: 0x334...234",
   },
   {
-    reward: "23 $NEXUS",
+    reward: "23 $USDC",
     paidTo: "0x334...234",
     activity: "Contributed 5GB bandwidth to hyperliquid nodes syncronization",
     time: "47s ago",
-    info1: "Reward amount: 0.23 $NEXUS",
+    info1: "Reward amount: 0.23 $USDC",
     info2: "Paid to: 0x334...234",
   },
   {
-    reward: "45 $NEXUS",
+    reward: "45 $USDC",
     paidTo: "0x334...234",
     activity: "Disable Google Cloud Storage API",
     time: "2min ago",
     info1: "Connected since: 01/01/2025",
-    info2: "Generated amount API contributions: 300$",
+    info2: "Generated amount API contributions: 300$USDC",
   },
   {
-    reward: "22 USDT",
+    reward: "22 $USDC",
     paidTo: "0x334...234",
     activity: "Enable AWS S3 API for storage contributions",
     time: "wednesday",
