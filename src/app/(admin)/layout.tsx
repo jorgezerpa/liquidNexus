@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/dashboard/Navbar";
 import { Sidebar } from "@/components/dashboard/Sidebar";
 import { Providers } from "./Providers";
-import { IoMdChatbubbles } from "react-icons/io";
+import { AIChat } from "@/components/dashboard/AIChat";
 
 export default function RootLayout({
   children,
@@ -25,12 +25,7 @@ export default function RootLayout({
                   <Sidebar isAdmin />
               </div>
           </div>
-          <div className="absolute bottom-[50px] right-[15px] flex flex-col justify-center items-center gap-1">
-            <div className="w-[80px] h-[80px] rounded-full bg-backgroundSecondary shadow-md shadow-white flex justify-center items-center cursor-pointer">
-              <IoMdChatbubbles size={40} />
-            </div>
-            <p>Nexus AI</p>
-          </div>
+          <AIChat />
     </div>
   );
 }
