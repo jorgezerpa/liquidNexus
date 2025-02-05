@@ -1,23 +1,50 @@
 "use client"
 import * as React from 'react'
 import {  useConnect } from 'wagmi'
+import Image from 'next/image'
 
 export function ConnectToMetamask() {
   const { connectors, connect } = useConnect()
 
-  return connectors
-    .filter(conn => conn.id === "injected")
-    .map((connector) => (
-    <button key={connector.uid} 
-      onClick={() => {
-        console.log("click")
-        connect({ connector })
-      }}
-      type='button' className="mt-5 px-4 py-2 text-black bg-gray-100 rounded-lg hover:bg-gray-300 cursor-pointer my-2 ">
-        Connect Wallet
-    </button>
-    // <button key={connector.uid} onClick={() => connect({ connector })}>
-    //     {connector.name}
-    // </button>
-  ))
+  const injected = connectors.find(c => c.id === "injected") as any
+  const walletConnect = connectors.find(c => c.id === "walletConnect") as any
+  const metamask = connectors.find(c => c.id === "metaMaskSDK") as any
+
+    return (
+        <div className='flex-shrink-0 w-full max-w-[300px] px-4 py-3 justify-center items-center bg-gradient-to-br from-gray-700 to-gray-900 shadow-md shadow-gray-700 rounded-lg'>
+          <div style={{ width: '80px', height: '80px', position:"relative"}} className="sm:scale-100 mx-auto"> 
+              <Image
+              src="/images/logo.png" 
+              alt="My Image" 
+              layout="fill" 
+              objectFit="contain" 
+              />
+          </div>
+          <p className='text-center font-bold text-2xl text-title mb-4'>Connect your wallet</p>
+          <div className='flex flex-col gap-1'>
+            <button 
+              onClick={() => {
+                connect({ connector:injected })
+              }}
+              type='button' className="hover:scale-95 transition-all px-4 py-6  rounded-lg hover:text-white hover:font-bold cursor-pointer my-2 bg-white bg-opacity-5 shadow-md shadow-black">
+                Injected
+            </button>
+            <button 
+              onClick={() => {
+                connect({ connector:walletConnect })
+              }}
+              type='button' className="hover:scale-95 transition-all px-4 py-6  rounded-lg hover:text-white hover:font-bold cursor-pointer my-2 bg-white bg-opacity-5 shadow-md shadow-black">
+                Wallet Connect
+            </button>
+            <button 
+              onClick={() => {
+                connect({ connector:metamask })
+              }}
+              type='button' className="hover:scale-95 transition-all  px-4 py-6  rounded-lg hover:text-white hover:font-bold cursor-pointer my-2 bg-white bg-opacity-5 shadow-md shadow-black">
+                Metamask
+            </button>
+          </div>
+        </div>
+    )
+    
 }

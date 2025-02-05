@@ -1,7 +1,7 @@
 import { http, createConfig } from 'wagmi'
 import { HyperLiquid, Arbitrum, Mainnet } from './customChains'
-import { injected} from 'wagmi/connectors'
-
+import { injected, walletConnect, metaMask } from 'wagmi/connectors'
+import { WAGMI } from '@/constants/web3'
 
 export const config = createConfig({
   chains: [
@@ -11,8 +11,8 @@ export const config = createConfig({
 ],
   connectors: [
     injected(),
-    // walletConnect({ projectId }),
-    // metaMask(),
+    walletConnect({ projectId:WAGMI.walletConnectId }),
+    metaMask(),
     // safe(),
   ],
   transports: {
