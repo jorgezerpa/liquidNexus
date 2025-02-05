@@ -39,7 +39,8 @@ export function formatBalanceValue(balance: string, decimals: number): string {
 
   if (fractionalPart.length > 0) {
       fractionalPart = fractionalPart.slice(0, 4); // Keep only up to 4 decimal places
-      const formattedBalance = `<span class="math-inline">\{integerPart\}\.</span>{fractionalPart}`;
+      // const formattedBalance = `<span class="math-inline">\{integerPart\}\.</span>{fractionalPart}`;
+      const formattedBalance = `${integerPart}.${fractionalPart}`;
       const trimmedBalance = formattedBalance.replace(/\.0*$/, ''); // Remove trailing zeros and . if no decimals
       return trimmedBalance === integerPart ? integerPart : trimmedBalance; // Return integer part if only 0. remains
   } else {

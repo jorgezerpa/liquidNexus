@@ -11,7 +11,11 @@ function Navbar() {
     const router = useRouter()
     const {address, chainId, chain} = useAccount()
 
-    const {data:dataBalance} = useBalance({chainId, address})
+    const {data:dataBalance} = useBalance({
+        chainId, 
+        address,
+        token:"0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+    })
 
     const {disconnect} = useDisconnect()
     const [showProfileOptions, setShowProfileOptions] = useState(false)

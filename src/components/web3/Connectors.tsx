@@ -24,21 +24,21 @@ export function ConnectToMetamask() {
           <div className='flex flex-col gap-1'>
             <button 
               onClick={() => {
-                connect({ connector:injected })
+                connect({ connector:injected, chainId:42161 })
               }}
               type='button' className="hover:scale-95 transition-all px-4 py-6  rounded-lg hover:text-white hover:font-bold cursor-pointer my-2 bg-white bg-opacity-5 shadow-md shadow-black">
                 Injected
             </button>
             <button 
               onClick={() => {
-                connect({ connector:walletConnect })
+                connect({ connector:walletConnect, chainId:42161 })
               }}
               type='button' className="hover:scale-95 transition-all px-4 py-6  rounded-lg hover:text-white hover:font-bold cursor-pointer my-2 bg-white bg-opacity-5 shadow-md shadow-black">
                 Wallet Connect
             </button>
             <button 
               onClick={() => {
-                connect({ connector:metamask })
+                connect({ connector:metamask, chainId:42161 })
               }}
               type='button' className="hover:scale-95 transition-all  px-4 py-6  rounded-lg hover:text-white hover:font-bold cursor-pointer my-2 bg-white bg-opacity-5 shadow-md shadow-black">
                 Metamask
